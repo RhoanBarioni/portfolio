@@ -7,20 +7,20 @@ export function SiteFooter() {
   return (
     <footer className="border-t border-white/[0.06] bg-[oklch(0.105_0.008_265)]">
       <div className="mx-auto flex w-full max-w-5xl flex-col gap-4 px-6 py-10 text-sm sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-muted-foreground">
+        <p className="text-white/35">
           Designed &amp; developed by{" "}
-          <span className="text-foreground">{profile.name}</span>
+          <span className="text-white/35">{profile.name}</span>
         </p>
-        <p className="font-mono text-xs text-muted-foreground">
+        <p className="font-mono text-xs text-white/35">
           built with{" "}
           {BUILT_WITH.map((item, i) => (
             <span key={item}>
-              <span className="text-foreground">{item}</span>
+              <span className="text-white/35">{item}</span>
               {i < BUILT_WITH.length - 1 ? " · " : ""}
             </span>
           ))}
         </p>
-        <div className="flex items-center gap-4 text-muted-foreground">
+        <div className="flex items-center gap-4 text-white/35">
           <a
             href={profile.github}
             target="_blank"
