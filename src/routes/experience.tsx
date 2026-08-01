@@ -5,7 +5,7 @@ import { timeline } from "@/data/portfolio";
 
 const TITLE = "Rhoan Barioni - Software Developer";
 const DESCRIPTION =
-  "The path from first lines of code in 2023 to full stack engineering in 2026: what Rhoan Barioni learned and built each year.";
+  "Minha trajetória no desenvolvimento de software, das primeiras linhas de código aos estudos atuais em desenvolvimento Full Stack.";
 
 export const Route = createFileRoute("/experience")({
   head: () => ({
@@ -26,8 +26,8 @@ function Experience() {
     <PageShell>
       <PageHeader
         command="git log --reverse --oneline"
-        title="A deliberate path, year by year."
-        description="No shortcuts — a steady progression from markup to systems."
+        title="Minha trajetória, ano após ano."
+        description="Uma evolução constante, dos fundamentos da web ao desenvolvimento de sistemas completos."
       />
 
       <ol className="mt-16 border-l border-border">

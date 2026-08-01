@@ -18,19 +18,19 @@ export interface Profile {
 
 export const profile: Profile = {
   name: "Rhoan Barioni",
-  role: "Full Stack Developer",
-  tagline: "Computer Science Student",
+  role: "Desenvolvedor Full Stack",
+  tagline: "Estudante de Ciência da Computação",
   about: [
-    "I'm a Computer Science student and Full Stack Developer based in Brazil. I care about software that is readable six months later, not just software that ships today.",
-    "I build web applications end to end: interfaces with React, Vite and TypeScript, and services with Go on top of relational databases. I'm currently learning Java.",
-    "Right now I'm deepening my backend work — API design, data modelling, containers and Linux tooling — and learning how to reason about systems rather than screens.",
-    "My goal is to grow into an engineer who can own a product from database schema to the last pixel, working on teams that take craft seriously.",
+    "Sou estudante de Ciência da Computação e desenvolvedor Full Stack. Gosto de escrever código claro e fácil de manter, não apenas de entregar algo que funcione no momento.",
+    "Desenvolvo aplicações web de ponta a ponta: crio interfaces com React, Vite e TypeScript e construo serviços em Go integrados a bancos de dados relacionais.",
+    "Atualmente, estou aprofundando meus conhecimentos em backend, design de APIs, modelagem de dados, contêineres e Linux. Também estou aprendendo Java e buscando compreender melhor os sistemas por trás de cada interface.",
+    "Quero me tornar um profissional capaz de acompanhar todo o desenvolvimento de um produto, desde a estrutura do banco de dados até os últimos detalhes da interface, sempre trabalhando com responsabilidade e atenção à qualidade.",
   ],
   email: "rhoanbarioni.dev@gmail.com",
   github: "https://github.com/RhoanBarioni",
   githubUser: "RhoanBarioni",
   linkedin: "https://www.linkedin.com/in/rhoanbarioni/",
-  location: "Brazil",
+  location: "Brasil",
   instagramUser: "rhoanbarioni.dev",
   instagram: "https://www.instagram.com/rhoanbarioni.dev/",
 };
@@ -56,52 +56,53 @@ export const projects: Project[] = [
     name: "AcadMap",
     year: "2024",
     summary:
-      "An interactive web application that organizes academic information and makes finding your way around campus effortless.",
+      "Uma aplicação web interativa que organiza informações acadêmicas e facilita a localização dentro do campus.",
     problem:
-      "Students often struggle to locate classrooms and navigate the university campus.",
+      "Muitos estudantes têm dificuldade para encontrar salas e se localizar dentro da universidade.",
     solution:
-      "Developed an interactive web application that organizes academic information and simplifies campus navigation.",
+      "Desenvolvi uma aplicação interativa que reúne informações acadêmicas e torna a navegação pelo campus mais simples.",
     results:
-      "Improved the day-to-day experience for students while sharpening my frontend architecture skills.",
+      "O projeto facilitou o dia a dia dos estudantes e me ajudou a evoluir na organização e na arquitetura do frontend.",
     tech: ["React", "Vite", "JavaScript", "HTML", "SCSS"],
     cover: acadmapCover,
     repo: "https://github.com/RhoanBarioni/AcadMap",
     demo: "https://rhoanbarioni.github.io/AcadMap/",
-    demoLabel: "Live demo",
+    demoLabel: "Ver demonstração",
   },
   {
     id: "royal",
     name: "ROYAL",
     year: "2024",
     summary:
-      "A responsive institutional website for a construction company, built around performance and clarity.",
+      "Um site institucional responsivo para uma construtora, desenvolvido com foco em desempenho e clareza.",
     problem:
-      "The company needed a credible, fast online presence that worked on any device.",
+      "A empresa precisava de uma presença digital profissional, rápida e acessível em qualquer dispositivo.",
     solution:
-      "Designed and developed a responsive institutional website focused on performance and usability.",
+      "Planejei e desenvolvi um site institucional responsivo, priorizando desempenho, usabilidade e uma apresentação objetiva dos serviços.",
     results:
-      "Delivered a modern production website now serving the company's real clients.",
+      "Entreguei um site moderno, publicado e utilizado pela empresa no atendimento aos seus clientes.",
     tech: ["HTML", "SCSS", "JavaScript"],
     cover: royalCover,
     demo: "https://royalconstru.com.br/",
-    demoLabel: "Visit website",
+    demoLabel: "Visitar site",
   },
   {
     id: "lgpd",
     name: "LGPD_Facul",
     year: "2023",
     summary:
-      "An educational website that breaks down Brazil's General Data Protection Law into clear, accessible concepts.",
+      "Um site educacional que apresenta a Lei Geral de Proteção de Dados de forma clara e acessível.",
     problem:
-      "Explaining Brazil's General Data Protection Law (LGPD) in a simple, accessible way.",
-    solution: "Built an educational website as part of an academic project.",
+      "Explicar os principais conceitos da Lei Geral de Proteção de Dados de maneira simples e organizada.",
+    solution:
+      "Desenvolvi um site educacional como parte de um projeto acadêmico.",
     results:
-      "A responsive site that presents LGPD concepts in an organized, readable structure.",
+      "O resultado foi um site responsivo, com o conteúdo da LGPD apresentado em uma estrutura fácil de consultar.",
     tech: ["HTML", "SCSS", "JavaScript"],
     cover: lgpdCover,
     repo: "https://github.com/RhoanBarioni/LGPD_Facul",
     demo: "https://rhoanbarioni.github.io/LGPD_Facul/",
-    demoLabel: "Live demo",
+    demoLabel: "Ver demonstração",
   },
 ];
 
@@ -121,14 +122,14 @@ export const skillGroups: SkillGroup[] = [
     id: "frontend",
     title: "Frontend",
     icon: "layout",
-    description: "Interfaces that stay fast, accessible and easy to maintain.",
+    description: "Interfaces rápidas, acessíveis e fáceis de manter.",
     items: [
-      { name: "JavaScript", note: "core language" },
-      { name: "TypeScript", note: "typed everything" },
-      { name: "React", note: "component architecture" },
-      { name: "Vite", note: "build tooling" },
-      { name: "HTML", note: "semantic markup" },
-      { name: "SCSS", note: "structured styling" },
+      { name: "JavaScript", note: "linguagem principal" },
+      { name: "TypeScript", note: "tipagem estática" },
+      { name: "React", note: "arquitetura de componentes" },
+      { name: "Vite", note: "ferramentas de build" },
+      { name: "HTML", note: "marcação semântica" },
+      { name: "SCSS", note: "estilização organizada" },
     ],
   },
   {
@@ -136,23 +137,23 @@ export const skillGroups: SkillGroup[] = [
     title: "Backend",
     icon: "server",
     description:
-      "Services and APIs, with a growing focus on compiled languages.",
+      "Serviços e APIs, com foco crescente em linguagens compiladas.",
     items: [
-      { name: "Go", note: "services, concurrency" },
+      { name: "Go", note: "serviços e concorrência" },
       // { name: "Java", note: "OOP fundamentals" },
       // { name: "Node.js", note: "tooling and APIs" },
-      { name: "REST APIs", note: "design and consumption" },
-      { name: "Postman", note: "API testing" },
+      { name: "REST APIs", note: "design e consumo" },
+      { name: "Postman", note: "testes de API" },
     ],
   },
   {
     id: "database",
-    title: "Database",
+    title: "Banco de dados",
     icon: "database",
-    description: "Modelling and querying data for real application needs.",
+    description: "Modelagem e consulta de dados para necessidades reais.",
     items: [
       // { name: "PostgreSQL", note: "primary relational store" },
-      { name: "MySQL", note: "academic and legacy work" },
+      { name: "MySQL", note: "projetos acadêmicos" },
       // { name: "SQLite", note: "local and embedded" },
     ],
   },
@@ -160,24 +161,24 @@ export const skillGroups: SkillGroup[] = [
     id: "devops",
     title: "DevOps",
     icon: "container",
-    description:
-      "Reproducible environments and comfortable command-line workflows.",
+    description: "Ambientes reproduzíveis e rotinas eficientes pelo terminal.",
     items: [
-      { name: "Docker", note: "containers, compose" },
-      { name: "Linux", note: "daily driver" },
-      { name: "CI basics", note: "automated checks" },
+      { name: "Docker", note: "contêineres e Compose" },
+      { name: "Linux", note: "uso diário" },
+      { name: "CI básico", note: "verificações automatizadas" },
     ],
   },
   {
     id: "tools",
-    title: "Tools",
+    title: "Ferramentas",
     icon: "wrench",
-    description: "The daily toolkit behind every project I ship.",
+    description:
+      "As ferramentas que utilizo no desenvolvimento dos meus projetos.",
     items: [
-      { name: "Git", note: "version control" },
-      { name: "GitHub", note: "collaboration" },
-      { name: "VS Code", note: "editor" },
-      { name: "Figma", note: "interface design" },
+      { name: "Git", note: "controle de versão" },
+      { name: "GitHub", note: "colaboração" },
+      { name: "VS Code", note: "editor de código" },
+      { name: "Figma", note: "design de interfaces" },
     ],
   },
 ];
@@ -192,31 +193,31 @@ export interface TimelineEntry {
 export const timeline: TimelineEntry[] = [
   {
     year: 2023,
-    title: "First lines of code",
+    title: "Primeiras linhas de código",
     description:
-      "Started studying software development and web technologies, building small static projects to understand the fundamentals.",
+      "Comecei a estudar desenvolvimento de software e tecnologias web, criando pequenos projetos estáticos para entender os fundamentos.",
     tags: ["HTML", "CSS", "JavaScript"],
   },
   {
     year: 2024,
-    title: "Frontend focus",
+    title: "Foco em frontend",
     description:
-      "Focused on frontend development with JavaScript, React and Vite while shipping academic and personal projects to real users.",
+      "Aprofundei meus estudos em frontend com JavaScript, React e Vite e publiquei projetos acadêmicos e pessoais para usuários reais.",
     tags: ["React", "Vite", "SCSS"],
   },
   {
     year: 2025,
-    title: "Into the backend",
+    title: "Entrada no backend",
     description:
-      "Started learning backend development with Go and Java, plus Docker and Linux for reproducible environments.",
+      "Comecei a estudar desenvolvimento backend com Go e Java, além de Docker e Linux para criar ambientes reproduzíveis.",
     tags: ["Go", "Java", "Docker", "Linux"],
   },
   {
     year: 2026,
-    title: "Full stack in practice",
+    title: "Full stack na prática",
     description:
-      "Continuing toward full stack engineering: software architecture, API design and databases alongside my Computer Science degree.",
-    tags: ["TypeScript", "PostgreSQL", "Architecture"],
+      "Continuo evoluindo como desenvolvedor Full Stack, estudando arquitetura de software, design de APIs e bancos de dados junto com a graduação em Ciência da Computação.",
+    tags: ["TypeScript", "PostgreSQL", "Arquitetura"],
   },
 ];
 
@@ -224,13 +225,13 @@ export const timeline: TimelineEntry[] = [
 export const pinnedRepos = ["AcadMap", "ROYAL", "LGPD_Facul"];
 
 export const navPages = [
-  { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
-  { to: "/projects", label: "Projects" },
-  { to: "/experience", label: "Experience" },
+  { to: "/", label: "Início" },
+  { to: "/about", label: "Sobre" },
+  { to: "/projects", label: "Projetos" },
+  { to: "/experience", label: "Experiência" },
   { to: "/stack", label: "Stack" },
   { to: "/github", label: "GitHub" },
-  { to: "/contact", label: "Contact" },
+  { to: "/contact", label: "Contato" },
 ] as const;
 
 export const yearsLearning = new Date().getFullYear() - timeline[0].year;

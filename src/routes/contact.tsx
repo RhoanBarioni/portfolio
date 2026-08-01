@@ -7,7 +7,7 @@ import { profile } from "@/data/portfolio";
 
 const TITLE = "Rhoan Barioni - Software Developer";
 const DESCRIPTION =
-  "Get in touch with Rhoan Barioni by email, LinkedIn or GitHub — open to internships, junior roles and freelance work.";
+  "Entre em contato comigo por email, LinkedIn, GitHub ou Instagram. Estou aberto a estágios, vagas júnior e projetos freelance.";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -65,15 +65,15 @@ function Contact() {
     const message = String(form.get("message") ?? "").trim();
 
     const next: Record<string, string> = {};
-    if (!name) next.name = "Please tell me your name.";
+    if (!name) next.name = "Informe seu nome.";
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
-      next.email = "Please enter a valid email.";
+      next.email = "Informe um email válido.";
     if (message.length < 10)
-      next.message = "A little more detail, please (10+ characters).";
+      next.message = "Escreva uma mensagem com pelo menos 10 caracteres.";
     setErrors(next);
     if (Object.keys(next).length > 0) return;
 
-    const subject = encodeURIComponent(`Portfolio contact — ${name}`);
+    const subject = encodeURIComponent(`Contato pelo portfólio — ${name}`);
     const body = encodeURIComponent(`${message}\n\n—\n${name}\n${email}`);
     window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`;
   }
@@ -85,8 +85,8 @@ function Contact() {
     <PageShell>
       <PageHeader
         command="ping rhoan --message"
-        title="Let's talk."
-        description="Open to internships, junior full stack roles and freelance projects. I reply to every serious message."
+        title="Vamos conversar."
+        description="Estou aberto a estágios, oportunidades como desenvolvedor Full Stack júnior e projetos freelance. Respondo pessoalmente a todas as mensagens."
       />
 
       <div className="mt-16 grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
@@ -123,11 +123,11 @@ function Contact() {
             noValidate
             className="rounded-lg border border-border p-6"
           >
-            <Label>compose message</Label>
+            <Label>escrever mensagem</Label>
 
             <div className="mt-5">
               <label htmlFor="name" className="text-sm text-muted-foreground">
-                Name
+                Nome
               </label>
               <input
                 id="name"
@@ -166,7 +166,7 @@ function Contact() {
                 htmlFor="message"
                 className="text-sm text-muted-foreground"
               >
-                Message
+                Mensagem
               </label>
               <textarea
                 id="message"
@@ -186,10 +186,10 @@ function Contact() {
               className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-md bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
             >
               <Mail aria-hidden className="h-4 w-4" />
-              Open in mail client
+              Abrir no aplicativo de email
             </button>
             <p className="mt-3 font-mono text-[0.7rem] text-muted-foreground">
-              no backend · opens your default mail app
+              sem backend · abre seu aplicativo de email padrão
             </p>
           </form>
         </Reveal>

@@ -6,7 +6,7 @@ import { skillGroups, type SkillIcon } from "@/data/portfolio";
 
 const TITLE = "Rhoan Barioni - Software Developer";
 const DESCRIPTION =
-  "The frontend, backend, database, DevOps and tooling technologies Rhoan Barioni works with every day.";
+  "Tecnologias e ferramentas que utilizo em frontend, backend, banco de dados e DevOps.";
 
 export const Route = createFileRoute("/stack")({
   head: () => ({
@@ -35,8 +35,8 @@ function Stack() {
     <PageShell>
       <PageHeader
         command="cat stack.json"
-        title="The tools I reach for."
-        description="Not a badge wall — just what I actually use, grouped by where it sits in the system."
+        title="Tecnologias que fazem parte do meu dia a dia."
+        description="Aqui estão as ferramentas que realmente utilizo, organizadas pela função que cumprem em cada projeto."
       />
 
       <div className="mt-16 divide-y divide-border border-y border-border">
