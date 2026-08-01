@@ -1,32 +1,76 @@
-# Logs
-logs
+# Dependencies
+node_modules/
+
+# Build output and framework caches
+.output/
+dist/
+dist-ssr/
+.nitro/
+.tanstack/
+.vinxi/
+.vite/
+*.tsbuildinfo
+
+# Cloudflare / Wrangler local state
+.wrangler/
+.dev.vars
+.dev.vars.*
+
+# Environment variables and local configuration
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.local
+.npmrc
+
+# Secrets, certificates and private keys
+*.key
+*.pem
+*.p12
+*.pfx
+*.crt
+*.cer
+*.jks
+*.keystore
+secrets/
+
+# Logs, coverage and temporary files
+logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+coverage/
+.nyc_output/
+.cache/
+.tmp/
+tmp/
+temp/
 
-node_modules
-dist
-dist-ssr
-.output
-.vinxi
-.tanstack/**
-.nitro
-*.local
-
-# Wrangler / Cloudflare
-.wrangler/
-.dev.vars
-
-# Editor directories and files
+# Local AI/editor tooling
+.agents/
+.codex/
 .vscode/*
 !.vscode/extensions.json
-.idea
+!.vscode/settings.example.json
+.idea/
+*.code-workspace
+
+# Operating-system files
 .DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editor swap and backup files
+*.swp
+*.swo
+*~
+*.bak
+*.tmp
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
-*.sw?

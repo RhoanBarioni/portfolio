@@ -2,7 +2,12 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 import { TypingLine } from "@/components/site/typing-line";
 import { Reveal } from "@/components/ui-kit/reveal";
-import { profile, projects, timeline, mainTechnologies } from "@/data/portfolio";
+import {
+  profile,
+  projects,
+  timeline,
+  mainTechnologies,
+} from "@/data/portfolio";
 
 const TITLE = "Rhoan Barioni — Full Stack Developer";
 const DESCRIPTION =
@@ -39,7 +44,10 @@ export const Route = createFileRoute("/")({
 });
 
 const stats = [
-  { label: "years learning", value: `${new Date().getFullYear() - timeline[0].year}+` },
+  {
+    label: "years learning",
+    value: `${new Date().getFullYear() - timeline[0].year}+`,
+  },
   { label: "shipped projects", value: String(projects.length) },
   { label: "technologies", value: String(mainTechnologies) },
 ];
@@ -48,13 +56,24 @@ function Home() {
   return (
     <>
       <section className="relative overflow-hidden">
-        <div aria-hidden className="pointer-events-none absolute inset-0 grid-field" />
-        <div aria-hidden className="pointer-events-none absolute inset-0 ambient-blue" />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 grid-field"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 ambient-blue"
+        />
 
         <div className="relative mx-auto flex min-h-[calc(100dvh-4rem)] w-full max-w-5xl flex-col justify-center px-6 py-24">
           <Reveal>
             <p className="font-mono text-xs text-muted-foreground">
-              <span className="mr-2 inline-block h-1.5 w-1.5 translate-y-[-1px] rounded-full bg-primary align-middle" />
+              <span
+                aria-hidden
+                className="availability-pulse mr-2 inline-flex h-1.5 w-1.5 translate-y-[-1px] align-middle"
+              >
+                <span className="relative z-10 h-full w-full rounded-full bg-primary" />
+              </span>
               available for opportunities · {profile.location}
             </p>
           </Reveal>
@@ -71,8 +90,8 @@ function Home() {
 
           <Reveal delay={0.15}>
             <p className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground">
-              Computer Science student building web applications end to end — interfaces with React
-              and TypeScript, services with Go and Java.
+              Computer Science student building web applications end to end —
+              interfaces with React and TypeScript, services with Go and Java.
             </p>
           </Reveal>
 
@@ -132,7 +151,9 @@ function Home() {
               <dt className="font-mono text-[0.7rem] tracking-[0.16em] text-muted-foreground uppercase">
                 {stat.label}
               </dt>
-              <dd className="mt-2 text-3xl font-semibold tracking-tight">{stat.value}</dd>
+              <dd className="mt-2 text-3xl font-semibold tracking-tight">
+                {stat.value}
+              </dd>
             </div>
           ))}
         </dl>

@@ -5,10 +5,11 @@ const BUILT_WITH = ["React", "TypeScript", "Tailwind"];
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border">
+    <footer className="border-t border-white/[0.06] bg-[oklch(0.105_0.008_265)]">
       <div className="mx-auto flex w-full max-w-5xl flex-col gap-4 px-6 py-10 text-sm sm:flex-row sm:items-center sm:justify-between">
         <p className="text-muted-foreground">
-          Designed &amp; developed by <span className="text-foreground">{profile.name}</span>
+          Designed &amp; developed by{" "}
+          <span className="text-foreground">{profile.name}</span>
         </p>
         <p className="font-mono text-xs text-muted-foreground">
           built with{" "}
@@ -20,10 +21,20 @@ export function SiteFooter() {
           ))}
         </p>
         <div className="flex items-center gap-4 text-muted-foreground">
-          <a href={profile.github} target="_blank" rel="noreferrer noopener" className="hover:text-foreground">
+          <a
+            href={profile.github}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="hover:text-foreground"
+          >
             GitHub
           </a>
-          <a href={profile.linkedin} target="_blank" rel="noreferrer noopener" className="hover:text-foreground">
+          <a
+            href={profile.linkedin}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="hover:text-foreground"
+          >
             LinkedIn
           </a>
           <Link to="/contact" className="hover:text-foreground">
