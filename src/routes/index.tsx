@@ -11,7 +11,7 @@ import {
 
 const TITLE = "Rhoan Barioni - Software Developer";
 const DESCRIPTION =
-  "Full Stack Developer and Computer Science student building web applications with React, TypeScript, Go and Java.";
+  "Full Stack Developer and Computer Science student building web applications with React, TypeScript and Go, currently learning Java.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
