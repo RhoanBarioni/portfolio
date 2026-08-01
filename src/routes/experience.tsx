@@ -3,7 +3,7 @@ import { PageHeader, PageShell, Label, Tag } from "@/components/ui-kit/page";
 import { Reveal } from "@/components/ui-kit/reveal";
 import { timeline } from "@/data/portfolio";
 
-const TITLE = "Experience — Rhoan Barioni";
+const TITLE = "Rhoan Barioni - Software Developer";
 const DESCRIPTION =
   "The path from first lines of code in 2023 to full stack engineering in 2026: what Rhoan Barioni learned and built each year.";
 

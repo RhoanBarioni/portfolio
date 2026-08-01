@@ -4,7 +4,7 @@ import { PageHeader, PageShell, Label, Tag } from "@/components/ui-kit/page";
 import { Reveal } from "@/components/ui-kit/reveal";
 import { projects, type Project } from "@/data/portfolio";
 
-const TITLE = "Projects — Rhoan Barioni";
+const TITLE = "Rhoan Barioni - Software Developer";
 const DESCRIPTION =
   "Case studies of software built by Rhoan Barioni: AcadMap, ROYAL and LGPD_Facul — problem, solution, results and stack.";
 

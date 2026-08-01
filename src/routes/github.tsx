@@ -18,7 +18,7 @@ const githubQuery = queryOptions({
   staleTime: 5 * 60_000,
 });
 
-const TITLE = "GitHub — Rhoan Barioni";
+const TITLE = "Rhoan Barioni - Software Developer";
 const DESCRIPTION =
   "Live GitHub activity for @RhoanBarioni: repositories, language distribution, recent commits and public contributions.";
 
