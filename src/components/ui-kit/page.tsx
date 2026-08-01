@@ -10,7 +10,11 @@ export function PageShell({
   className?: string;
 }) {
   return (
-    <div className={cn("mx-auto w-full max-w-5xl px-6 py-16 sm:py-24", className)}>{children}</div>
+    <div
+      className={cn("mx-auto w-full max-w-5xl px-6 py-16 sm:py-24", className)}
+    >
+      {children}
+    </div>
   );
 }
 
@@ -32,13 +36,21 @@ export function PageHeader({
         {title}
       </h1>
       {description ? (
-        <p className="mt-4 text-base leading-relaxed text-muted-foreground">{description}</p>
+        <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+          {description}
+        </p>
       ) : null}
     </Reveal>
   );
 }
 
-export function Label({ children, className }: { children: ReactNode; className?: string }) {
+export function Label({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
   return (
     <span
       className={cn(

@@ -3,19 +3,56 @@ import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
 import { GitBranch, GitCommitHorizontal, Star } from "lucide-react";
 import { PageHeader, PageShell, Label, Tag } from "@/components/ui-kit/page";
 import { Reveal } from "@/components/ui-kit/reveal";
-import { getGithubStats, type GithubRepo, type GithubDay } from "@/lib/github.functions";
+import {
+  getGithubStats,
+  type GithubRepo,
+  type GithubDay,
+} from "@/lib/github.functions";
 import { pinnedRepos, profile } from "@/data/portfolio";
 import { cn } from "@/lib/utils";
 
 const githubQuery = queryOptions({
   queryKey: ["github", profile.githubUser],
-  queryFn: () => getGithubStats({ data: { user: profile.githubUser, pinned: pinnedRepos } }),
+  queryFn: () =>
+    getGithubStats({ data: { user: profile.githubUser, pinned: pinnedRepos } }),
   staleTime: 5 * 60_000,
 });
 
 const TITLE = "GitHub — Rhoan Barioni";
 const DESCRIPTION =
   "Live GitHub activity for @RhoanBarioni: repositories, language distribution, recent commits and public contributions.";
+
+const LANGUAGE_COLORS: Record<string, string> = {
+  Astro: "#ff5a03",
+  C: "#555555",
+  "C#": "#178600",
+  "C++": "#f34b7d",
+  CSS: "#663399",
+  Dart: "#00b4ab",
+  Dockerfile: "#384d54",
+  Go: "#00add8",
+  HTML: "#e34c26",
+  Java: "#b07219",
+  JavaScript: "#f1e05a",
+  "Jupyter Notebook": "#da5b0b",
+  Kotlin: "#a97bff",
+  Lua: "#000080",
+  Makefile: "#427819",
+  MDX: "#fcb32c",
+  PHP: "#4f5d95",
+  Python: "#3572a5",
+  Ruby: "#701516",
+  Rust: "#dea584",
+  SCSS: "#c6538c",
+  Shell: "#89e051",
+  Svelte: "#ff3e00",
+  Swift: "#f05138",
+  TypeScript: "#3178c6",
+  Vue: "#41b883",
+};
+
+const languageColor = (language: string) =>
+  LANGUAGE_COLORS[language] ?? "#8b949e";
 
 export const Route = createFileRoute("/github")({
   loader: ({ context }) => {
@@ -63,7 +100,11 @@ function RepoCard({ repo }: { repo: GithubRepo }) {
       <div className="mt-4 flex items-center gap-4 font-mono text-[0.7rem] text-muted-foreground">
         {repo.language && (
           <span className="flex items-center gap-1.5">
-            <span aria-hidden className="h-2 w-2 rounded-full bg-primary" />
+            <span
+              aria-hidden
+              className="h-2 w-2 rounded-full"
+              style={{ backgroundColor: languageColor(repo.language) }}
+            />
             {repo.language}
           </span>
         )}
@@ -94,7 +135,11 @@ function ContributionGrid({ days }: { days: GithubDay[] }) {
 
   return (
     <div className="overflow-x-auto">
-      <div className="flex gap-[3px]" role="img" aria-label="Public contribution activity, last 17 weeks">
+      <div
+        className="flex gap-[3px]"
+        role="img"
+        aria-label="Public contribution activity, last 17 weeks"
+      >
         {weeks.map((week) => (
           <div key={week[0].date} className="flex flex-col gap-[3px]">
             {week.map((day) => (
@@ -156,7 +201,9 @@ function GithubPage() {
               <dt>
                 <Label>{item.label}</Label>
               </dt>
-              <dd className="mt-2 text-2xl font-semibold tracking-tight">{item.value}</dd>
+              <dd className="mt-2 text-2xl font-semibold tracking-tight">
+                {item.value}
+              </dd>
             </div>
           ))}
         </dl>
@@ -167,7 +214,9 @@ function GithubPage() {
           <h2 id="contrib-title" className="text-lg font-medium tracking-tight">
             Public activity
           </h2>
-          <p className="mt-1 font-mono text-xs text-muted-foreground">last 17 weeks</p>
+          <p className="mt-1 font-mono text-xs text-muted-foreground">
+            last 17 weeks
+          </p>
           <div className="mt-5 rounded-lg border border-border p-5">
             <ContributionGrid days={data.days} />
           </div>
@@ -177,7 +226,10 @@ function GithubPage() {
       {data.pinned.length > 0 && (
         <Reveal delay={0.05}>
           <section aria-labelledby="pinned-title" className="mt-16">
-            <h2 id="pinned-title" className="text-lg font-medium tracking-tight">
+            <h2
+              id="pinned-title"
+              className="text-lg font-medium tracking-tight"
+            >
               Pinned repositories
             </h2>
             <ul className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -216,23 +268,34 @@ function GithubPage() {
               aria-hidden
               className="mt-5 flex h-2 w-full overflow-hidden rounded-full bg-surface-strong"
             >
-              {data.languages.map((lang, i) => (
+              {data.languages.map((lang) => (
                 <span
                   key={lang.name}
-                  style={{ width: `${lang.percent}%` }}
-                  className={cn(
-                    "h-full",
-                    i === 0 ? "bg-primary" : i === 1 ? "bg-primary/60" : i === 2 ? "bg-violet/70" : "bg-muted-foreground/40",
-                  )}
+                  style={{
+                    width: `${lang.percent}%`,
+                    backgroundColor: languageColor(lang.name),
+                  }}
+                  className="h-full"
                 />
               ))}
             </div>
             <ul className="mt-5 divide-y divide-border border-y border-border">
               {data.languages.map((lang) => (
-                <li key={lang.name} className="flex items-center justify-between py-2.5 text-sm">
-                  <span>{lang.name}</span>
+                <li
+                  key={lang.name}
+                  className="flex items-center justify-between py-2.5 text-sm"
+                >
+                  <span className="flex items-center gap-2.5">
+                    <span
+                      aria-hidden
+                      className="h-2.5 w-2.5 rounded-full"
+                      style={{ backgroundColor: languageColor(lang.name) }}
+                    />
+                    {lang.name}
+                  </span>
                   <span className="font-mono text-xs text-muted-foreground">
-                    {lang.percent}% · {lang.count} repo{lang.count === 1 ? "" : "s"}
+                    {lang.percent}% · {lang.count} repo
+                    {lang.count === 1 ? "" : "s"}
                   </span>
                 </li>
               ))}
@@ -242,7 +305,10 @@ function GithubPage() {
 
         <Reveal delay={0.05}>
           <section aria-labelledby="commits-title">
-            <h2 id="commits-title" className="text-lg font-medium tracking-tight">
+            <h2
+              id="commits-title"
+              className="text-lg font-medium tracking-tight"
+            >
               Latest commits
             </h2>
             {data.commits.length > 0 ? (
@@ -260,7 +326,9 @@ function GithubPage() {
                         className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground"
                       />
                       <span className="min-w-0 flex-1">
-                        <span className="block truncate font-mono text-xs">{commit.message}</span>
+                        <span className="block truncate font-mono text-xs">
+                          {commit.message}
+                        </span>
                         <span className="mt-1 block font-mono text-[0.7rem] text-muted-foreground">
                           {commit.repo} · {relative(commit.createdAt)}
                         </span>
@@ -270,7 +338,9 @@ function GithubPage() {
                 ))}
               </ul>
             ) : (
-              <p className="mt-5 text-sm text-muted-foreground">No recent public commits.</p>
+              <p className="mt-5 text-sm text-muted-foreground">
+                No recent public commits.
+              </p>
             )}
           </section>
         </Reveal>
@@ -279,7 +349,10 @@ function GithubPage() {
       {data.activity.length > 0 && (
         <Reveal delay={0.05}>
           <section aria-labelledby="activity-title" className="mt-16">
-            <h2 id="activity-title" className="text-lg font-medium tracking-tight">
+            <h2
+              id="activity-title"
+              className="text-lg font-medium tracking-tight"
+            >
               Recent activity
             </h2>
             <ul className="mt-5 divide-y divide-border border-y border-border">

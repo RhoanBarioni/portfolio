@@ -89,6 +89,48 @@
     -webkit-font-smoothing: antialiased;
   }
 
+  img {
+    -webkit-user-drag: none;
+    user-select: none;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    html,
+    body {
+      cursor:
+        url("/cursors/breeze-dark-default.svg") 3 2,
+        default;
+    }
+
+    a,
+    button:not(:disabled),
+    [role="button"]:not([aria-disabled="true"]),
+    [role="link"],
+    summary,
+    label[for],
+    select:not(:disabled),
+    input[type="button"]:not(:disabled),
+    input[type="submit"]:not(:disabled),
+    input[type="reset"]:not(:disabled) {
+      cursor:
+        url("/cursors/breeze-dark-pointer.svg") 8 2,
+        pointer;
+    }
+
+    input:not([type="button"]):not([type="submit"]):not([type="reset"]),
+    textarea,
+    [contenteditable="true"] {
+      cursor: text;
+    }
+
+    button:disabled,
+    input:disabled,
+    select:disabled,
+    [aria-disabled="true"] {
+      cursor: not-allowed;
+    }
+  }
+
   ::selection {
     background: color-mix(in oklab, var(--primary) 35%, transparent);
   }
@@ -164,10 +206,6 @@
     opacity: 0;
     transform: scale(3.4);
   }
-}
-
-.availability-pulse {
-  position: relative;
 }
 
 .availability-pulse::before,

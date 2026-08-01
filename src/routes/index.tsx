@@ -70,7 +70,7 @@ function Home() {
             <p className="font-mono text-xs text-muted-foreground">
               <span
                 aria-hidden
-                className="availability-pulse mr-2 inline-flex h-1.5 w-1.5 translate-y-[-1px] align-middle"
+                className="availability-pulse relative mr-2 inline-flex h-2 w-2 translate-y-[-1px] align-middle"
               >
                 <span className="relative z-10 h-full w-full rounded-full bg-primary" />
               </span>
@@ -91,7 +91,7 @@ function Home() {
           <Reveal delay={0.15}>
             <p className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground">
               Computer Science student building web applications end to end —
-              interfaces with React and TypeScript, services with Go and Java.
+              interfaces with React and TypeScript, services with Go.
             </p>
           </Reveal>
 
