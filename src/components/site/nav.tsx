@@ -33,7 +33,7 @@ export function SiteNav() {
         <Link
           to="/"
           className="group flex items-center gap-2 font-mono text-sm text-foreground"
-          aria-label={`${profile.name} — home`}
+          aria-label={`${profile.name} — início`}
         >
           <span className="text-primary">~/</span>
           <span className="tracking-tight">rhoan</span>
@@ -45,7 +45,10 @@ export function SiteNav() {
           </span>
         </Link>
 
-        <nav aria-label="Primary" className="hidden items-center gap-1 md:flex">
+        <nav
+          aria-label="Principal"
+          className="hidden items-center gap-1 md:flex"
+        >
           {navPages.map((page) => (
             <Link
               key={page.to}
@@ -64,7 +67,7 @@ export function SiteNav() {
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-controls="mobile-nav"
-          aria-label={open ? "Close menu" : "Open menu"}
+          aria-label={open ? "Fechar menu" : "Abrir menu"}
           className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border text-muted-foreground transition-colors hover:text-foreground md:hidden"
         >
           {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
@@ -74,7 +77,7 @@ export function SiteNav() {
       {open && (
         <nav
           id="mobile-nav"
-          aria-label="Mobile"
+          aria-label="Menu para dispositivos móveis"
           className="border-t border-border bg-background/95 backdrop-blur-md md:hidden"
         >
           <ul className="mx-auto flex max-w-5xl flex-col px-6 py-2">

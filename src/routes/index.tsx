@@ -11,7 +11,7 @@ import {
 
 const TITLE = "Rhoan Barioni - Software Developer";
 const DESCRIPTION =
-  "Full Stack Developer and Computer Science student building web applications with React, TypeScript and Go, currently learning Java.";
+  "Desenvolvedor Full Stack e estudante de Ciência da Computação. Crio aplicações web com React, TypeScript e Go e atualmente estudo Java.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -45,11 +45,11 @@ export const Route = createFileRoute("/")({
 
 const stats = [
   {
-    label: "years learning",
+    label: "anos estudando",
     value: `${new Date().getFullYear() - timeline[0].year}+`,
   },
-  { label: "shipped projects", value: String(projects.length) },
-  { label: "technologies", value: String(mainTechnologies) },
+  { label: "projetos publicados", value: String(projects.length) },
+  { label: "tecnologias", value: String(mainTechnologies) },
 ];
 
 function Home() {
@@ -74,7 +74,7 @@ function Home() {
               >
                 <span className="relative z-10 h-full w-full rounded-full bg-primary" />
               </span>
-              available for opportunities · {profile.location}
+              disponível para oportunidades · {profile.location}
             </p>
           </Reveal>
 
@@ -85,13 +85,14 @@ function Home() {
           </Reveal>
 
           <div className="mt-6">
-            <TypingLine text="Full Stack Developer_" />
+            <TypingLine text="Desenvolvedor Full Stack_" />
           </div>
 
           <Reveal delay={0.15}>
             <p className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground">
-              Computer Science student building web applications end to end —
-              interfaces with React and TypeScript, services with Go.
+              Sou estudante de Ciência da Computação e desenvolvo aplicações web
+              de ponta a ponta: interfaces com React e TypeScript e serviços com
+              Go.
             </p>
           </Reveal>
 
@@ -101,7 +102,7 @@ function Home() {
                 to="/projects"
                 className="group inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
               >
-                View projects
+                Ver projetos
                 <ArrowRight
                   aria-hidden
                   className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
@@ -112,13 +113,13 @@ function Home() {
                 className="inline-flex items-center gap-2 rounded-md border border-border px-4 py-2.5 text-sm transition-colors hover:border-border-strong hover:bg-surface"
               >
                 <Mail aria-hidden className="h-4 w-4" />
-                Get in touch
+                Entrar em contato
               </Link>
               <a
                 href={profile.github}
                 target="_blank"
                 rel="noreferrer noopener"
-                aria-label="GitHub profile"
+                aria-label="Perfil no GitHub"
                 className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border text-muted-foreground transition-colors hover:border-border-strong hover:text-foreground"
               >
                 <Github aria-hidden className="h-4 w-4" />
@@ -127,14 +128,14 @@ function Home() {
                 href={profile.linkedin}
                 target="_blank"
                 rel="noreferrer noopener"
-                aria-label="LinkedIn profile"
+                aria-label="Perfil no LinkedIn"
                 className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border text-muted-foreground transition-colors hover:border-border-strong hover:text-foreground"
               >
                 <Linkedin aria-hidden className="h-4 w-4" />
               </a>
               <Link
                 to="/contact"
-                aria-label="Contact"
+                aria-label="Contato"
                 className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border text-muted-foreground transition-colors hover:border-border-strong hover:text-foreground"
               >
                 <Mail aria-hidden className="h-4 w-4" />
@@ -144,7 +145,7 @@ function Home() {
         </div>
       </section>
 
-      <section aria-label="At a glance" className="border-t border-border">
+      <section aria-label="Resumo" className="border-t border-border">
         <dl className="mx-auto grid w-full max-w-5xl grid-cols-1 divide-y divide-border px-6 sm:grid-cols-3 sm:divide-x sm:divide-y-0 sm:px-0">
           {stats.map((stat) => (
             <div key={stat.label} className="px-0 py-8 sm:px-6">

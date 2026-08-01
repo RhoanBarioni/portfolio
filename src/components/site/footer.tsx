@@ -8,7 +8,7 @@ export function SiteFooter() {
     <footer className="border-t border-white/[0.06] bg-[oklch(0.105_0.008_265)]">
       <div className="mx-auto flex w-full max-w-5xl flex-col gap-4 px-6 py-10 text-sm sm:flex-row sm:items-center sm:justify-between">
         <p className="text-white/35">
-          Designed &amp; developed by{" "}
+          Projetado e desenvolvido por{" "}
           <span className="text-white/35">{profile.name}</span>
         </p>
         {/* <p className="font-mono text-xs text-white/35">
@@ -38,7 +38,7 @@ export function SiteFooter() {
             LinkedIn
           </a>
           <Link to="/contact" className="hover:text-foreground">
-            Contact
+            Contato
           </Link>
         </div>
       </div>

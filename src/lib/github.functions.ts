@@ -112,20 +112,20 @@ function describeEvent(event: RawEvent): string {
   switch (event.type) {
     case "PushEvent": {
       const count = event.payload?.commits?.length ?? 0;
-      return `Pushed ${count} commit${count === 1 ? "" : "s"}`;
+      return `Enviou ${count} commit${count === 1 ? "" : "s"}`;
     }
     case "CreateEvent":
-      return `Created ${event.payload?.ref_type ?? "resource"}`;
+      return `Criou ${event.payload?.ref_type ?? "um recurso"}`;
     case "PullRequestEvent":
-      return `${event.payload?.action === "closed" ? "Closed" : "Opened"} a pull request`;
+      return `${event.payload?.action === "closed" ? "Fechou" : "Abriu"} um pull request`;
     case "IssuesEvent":
-      return `${event.payload?.action === "closed" ? "Closed" : "Opened"} an issue`;
+      return `${event.payload?.action === "closed" ? "Fechou" : "Abriu"} uma issue`;
     case "WatchEvent":
-      return "Starred a repository";
+      return "Adicionou uma estrela a um repositório";
     case "ForkEvent":
-      return "Forked a repository";
+      return "Criou um fork de um repositório";
     case "ReleaseEvent":
-      return "Published a release";
+      return "Publicou uma versão";
     default:
       return event.type.replace(/Event$/, "");
   }

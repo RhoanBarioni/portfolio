@@ -20,7 +20,7 @@ const githubQuery = queryOptions({
 
 const TITLE = "Rhoan Barioni - Software Developer";
 const DESCRIPTION =
-  "Live GitHub activity for @RhoanBarioni: repositories, language distribution, recent commits and public contributions.";
+  "Acompanhe meus repositórios, linguagens, commits recentes e atividades públicas no GitHub.";
 
 const LANGUAGE_COLORS: Record<string, string> = {
   Astro: "#ff5a03",
@@ -74,10 +74,11 @@ export const Route = createFileRoute("/github")({
 function relative(iso: string) {
   const diff = Date.now() - Date.parse(iso);
   const day = 86_400_000;
-  if (diff < 3_600_000) return `${Math.max(1, Math.round(diff / 60_000))}m ago`;
-  if (diff < day) return `${Math.round(diff / 3_600_000)}h ago`;
-  if (diff < 30 * day) return `${Math.round(diff / day)}d ago`;
-  return `${Math.round(diff / (30 * day))}mo ago`;
+  if (diff < 3_600_000)
+    return `há ${Math.max(1, Math.round(diff / 60_000))} min`;
+  if (diff < day) return `há ${Math.round(diff / 3_600_000)} h`;
+  if (diff < 30 * day) return `há ${Math.round(diff / day)} d`;
+  return `há ${Math.round(diff / (30 * day))} meses`;
 }
 
 function RepoCard({ repo }: { repo: GithubRepo }) {
@@ -92,10 +93,10 @@ function RepoCard({ repo }: { repo: GithubRepo }) {
         <span className="font-mono text-sm text-foreground transition-colors group-hover:text-primary">
           {repo.name}
         </span>
-        {repo.pinned && <Label>pinned</Label>}
+        {repo.pinned && <Label>fixado</Label>}
       </div>
       <p className="mt-2 line-clamp-2 flex-1 text-sm leading-relaxed text-muted-foreground">
-        {repo.description ?? "No description provided."}
+        {repo.description ?? "Repositório sem descrição."}
       </p>
       <div className="mt-4 flex items-center gap-4 font-mono text-[0.7rem] text-muted-foreground">
         {repo.language && (
@@ -138,14 +139,14 @@ function ContributionGrid({ days }: { days: GithubDay[] }) {
       <div
         className="flex gap-[3px]"
         role="img"
-        aria-label="Public contribution activity, last 17 weeks"
+        aria-label="Atividade pública de contribuições nas últimas 17 semanas"
       >
         {weeks.map((week) => (
           <div key={week[0].date} className="flex flex-col gap-[3px]">
             {week.map((day) => (
               <span
                 key={day.date}
-                title={`${day.date}: ${day.count} public event${day.count === 1 ? "" : "s"}`}
+                title={`${day.date}: ${day.count} evento${day.count === 1 ? "" : "s"} público${day.count === 1 ? "" : "s"}`}
                 className={cn("h-3 w-3 rounded-[2px]", level(day.count))}
               />
             ))}
@@ -164,8 +165,8 @@ function GithubPage() {
       <PageShell>
         <PageHeader
           command={`gh api users/${profile.githubUser}`}
-          title="GitHub data is unavailable right now."
-          description="The public GitHub API is rate limited or unreachable. Try again in a few minutes."
+          title="Os dados do GitHub estão indisponíveis no momento."
+          description="A API pública do GitHub atingiu o limite de requisições ou não respondeu. Tente novamente em alguns minutos."
         />
         <a
           href={profile.github}
@@ -173,25 +174,25 @@ function GithubPage() {
           rel="noreferrer noopener"
           className="mt-8 inline-flex rounded-md border border-border px-4 py-2.5 text-sm hover:bg-surface"
         >
-          Open GitHub profile
+          Abrir perfil no GitHub
         </a>
       </PageShell>
     );
   }
 
   const summary = [
-    { label: "public repos", value: data.publicRepos },
-    { label: "total stars", value: data.totalStars },
+    { label: "repositórios públicos", value: data.publicRepos },
+    { label: "estrelas", value: data.totalStars },
     { label: "forks", value: data.totalForks },
-    { label: "languages", value: data.languages.length },
+    { label: "linguagens", value: data.languages.length },
   ];
 
   return (
     <PageShell>
       <PageHeader
         command={`gh api users/${profile.githubUser}`}
-        title="Live from GitHub."
-        description="Everything below is fetched from the public GitHub REST API and rendered with custom components — no widgets."
+        title="Direto do meu GitHub."
+        description="Os dados abaixo vêm da API pública do GitHub e são exibidos por componentes que desenvolvi para esta página."
       />
 
       <Reveal>
@@ -212,10 +213,10 @@ function GithubPage() {
       <Reveal delay={0.05}>
         <section aria-labelledby="contrib-title" className="mt-16">
           <h2 id="contrib-title" className="text-lg font-medium tracking-tight">
-            Public activity
+            Atividade pública
           </h2>
           <p className="mt-1 font-mono text-xs text-muted-foreground">
-            last 17 weeks
+            últimas 17 semanas
           </p>
           <div className="mt-5 rounded-lg border border-border p-5">
             <ContributionGrid days={data.days} />
@@ -230,7 +231,7 @@ function GithubPage() {
               id="pinned-title"
               className="text-lg font-medium tracking-tight"
             >
-              Pinned repositories
+              Repositórios fixados
             </h2>
             <ul className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {data.pinned.map((repo) => (
@@ -246,7 +247,7 @@ function GithubPage() {
       <Reveal delay={0.05}>
         <section aria-labelledby="latest-title" className="mt-16">
           <h2 id="latest-title" className="text-lg font-medium tracking-tight">
-            Latest repositories
+            Repositórios recentes
           </h2>
           <ul className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {data.latest.map((repo) => (
@@ -262,7 +263,7 @@ function GithubPage() {
         <Reveal>
           <section aria-labelledby="lang-title">
             <h2 id="lang-title" className="text-lg font-medium tracking-tight">
-              Language distribution
+              Distribuição de linguagens
             </h2>
             <div
               aria-hidden
@@ -294,7 +295,7 @@ function GithubPage() {
                     {lang.name}
                   </span>
                   <span className="font-mono text-xs text-muted-foreground">
-                    {lang.percent}% · {lang.count} repo
+                    {lang.percent}% · {lang.count} repositório
                     {lang.count === 1 ? "" : "s"}
                   </span>
                 </li>
@@ -309,7 +310,7 @@ function GithubPage() {
               id="commits-title"
               className="text-lg font-medium tracking-tight"
             >
-              Latest commits
+              Commits recentes
             </h2>
             {data.commits.length > 0 ? (
               <ul className="mt-5 divide-y divide-border border-y border-border">
@@ -339,7 +340,7 @@ function GithubPage() {
               </ul>
             ) : (
               <p className="mt-5 text-sm text-muted-foreground">
-                No recent public commits.
+                Nenhum commit público recente.
               </p>
             )}
           </section>
@@ -353,7 +354,7 @@ function GithubPage() {
               id="activity-title"
               className="text-lg font-medium tracking-tight"
             >
-              Recent activity
+              Atividade recente
             </h2>
             <ul className="mt-5 divide-y divide-border border-y border-border">
               {data.activity.map((event) => (
@@ -362,7 +363,7 @@ function GithubPage() {
                   className="flex flex-wrap items-center justify-between gap-2 py-3 text-sm"
                 >
                   <span className="text-muted-foreground">
-                    {event.detail} in{" "}
+                    {event.detail} em{" "}
                     <a
                       href={event.repoUrl}
                       target="_blank"
@@ -385,8 +386,8 @@ function GithubPage() {
       <Reveal>
         <div className="mt-16 flex flex-wrap gap-2">
           <Tag>REST API</Tag>
-          <Tag>no widgets</Tag>
-          <Tag>cached 5 min</Tag>
+          <Tag>sem widgets</Tag>
+          <Tag>cache de 5 min</Tag>
         </div>
       </Reveal>
     </PageShell>

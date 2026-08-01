@@ -6,7 +6,7 @@ import { projects, type Project } from "@/data/portfolio";
 
 const TITLE = "Rhoan Barioni - Software Developer";
 const DESCRIPTION =
-  "Case studies of software built by Rhoan Barioni: AcadMap, ROYAL and LGPD_Facul — problem, solution, results and stack.";
+  "Conheça os projetos AcadMap, ROYAL e LGPD_Facul, seus objetivos, soluções, resultados e tecnologias utilizadas.";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
@@ -23,9 +23,9 @@ export const Route = createFileRoute("/projects")({
 });
 
 const CASE_FIELDS = [
-  { key: "problem", label: "Problem" },
-  { key: "solution", label: "Solution" },
-  { key: "results", label: "Results" },
+  { key: "problem", label: "Problema" },
+  { key: "solution", label: "Solução" },
+  { key: "results", label: "Resultado" },
 ] as const;
 
 function ProjectSection({
@@ -73,12 +73,12 @@ function ProjectSection({
               href={project.demo}
               target="_blank"
               rel="noreferrer noopener"
-              aria-label={`Open ${project.name} ${project.demoLabel}`}
+              aria-label={`Abrir ${project.demoLabel} do projeto ${project.name}`}
               className="group block"
             >
               <img
                 src={project.cover}
-                alt={`${project.name} interface`}
+                alt={`Interface do projeto ${project.name}`}
                 loading={index === 0 ? "eager" : "lazy"}
                 draggable={false}
                 width={1280}
@@ -89,7 +89,7 @@ function ProjectSection({
           ) : (
             <img
               src={project.cover}
-              alt={`${project.name} interface`}
+              alt={`Interface do projeto ${project.name}`}
               loading={index === 0 ? "eager" : "lazy"}
               draggable={false}
               width={1280}
@@ -118,7 +118,7 @@ function ProjectSection({
 
         <Reveal delay={0.1}>
           <div className="rounded-lg border border-border p-5">
-            <Label>tech stack</Label>
+            <Label>tecnologias</Label>
             <ul className="mt-3 flex flex-wrap gap-1.5">
               {project.tech.map((tech) => (
                 <li key={tech}>
@@ -136,7 +136,7 @@ function ProjectSection({
                   className="inline-flex items-center gap-2 rounded-md border border-border px-3.5 py-2 text-sm transition-colors hover:border-border-strong hover:bg-surface"
                 >
                   <Github aria-hidden className="h-4 w-4" />
-                  Source
+                  Código-fonte
                 </a>
               )}
               {project.demo && (
@@ -166,8 +166,8 @@ function Projects() {
     <PageShell>
       <PageHeader
         command="ls -la ./projects"
-        title="Things I designed, built and shipped."
-        description="Three projects, each documented the way I'd document them for a team: the problem, the decision, the outcome."
+        title="Projetos que planejei, desenvolvi e publiquei."
+        description="Apresento aqui três projetos com o contexto de cada um: o problema, a solução que escolhi e o resultado alcançado."
       />
 
       <div className="mt-16">
