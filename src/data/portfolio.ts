@@ -12,6 +12,8 @@ export interface Profile {
   githubUser: string;
   linkedin: string;
   location: string;
+  instagramUser: string;
+  instagram: string;
 }
 
 export const profile: Profile = {
@@ -29,6 +31,8 @@ export const profile: Profile = {
   githubUser: "RhoanBarioni",
   linkedin: "https://www.linkedin.com/in/rhoanbarioni/",
   location: "Brazil",
+  instagramUser: "rhoanbarioni.dev",
+  instagram: "https://www.instagram.com/rhoanbarioni.dev/",
 };
 
 export interface Project {
@@ -53,7 +57,8 @@ export const projects: Project[] = [
     year: "2024",
     summary:
       "An interactive web application that organizes academic information and makes finding your way around campus effortless.",
-    problem: "Students often struggle to locate classrooms and navigate the university campus.",
+    problem:
+      "Students often struggle to locate classrooms and navigate the university campus.",
     solution:
       "Developed an interactive web application that organizes academic information and simplifies campus navigation.",
     results:
@@ -70,10 +75,12 @@ export const projects: Project[] = [
     year: "2024",
     summary:
       "A responsive institutional website for a construction company, built around performance and clarity.",
-    problem: "The company needed a credible, fast online presence that worked on any device.",
+    problem:
+      "The company needed a credible, fast online presence that worked on any device.",
     solution:
       "Designed and developed a responsive institutional website focused on performance and usability.",
-    results: "Delivered a modern production website now serving the company's real clients.",
+    results:
+      "Delivered a modern production website now serving the company's real clients.",
     tech: ["HTML", "SCSS", "JavaScript"],
     cover: royalCover,
     demo: "https://royalconstru.com.br/",
@@ -85,9 +92,11 @@ export const projects: Project[] = [
     year: "2023",
     summary:
       "An educational website that breaks down Brazil's General Data Protection Law into clear, accessible concepts.",
-    problem: "Explaining Brazil's General Data Protection Law (LGPD) in a simple, accessible way.",
+    problem:
+      "Explaining Brazil's General Data Protection Law (LGPD) in a simple, accessible way.",
     solution: "Built an educational website as part of an academic project.",
-    results: "A responsive site that presents LGPD concepts in an organized, readable structure.",
+    results:
+      "A responsive site that presents LGPD concepts in an organized, readable structure.",
     tech: ["HTML", "SCSS", "JavaScript"],
     cover: lgpdCover,
     repo: "https://github.com/RhoanBarioni/LGPD_Facul",
@@ -96,7 +105,8 @@ export const projects: Project[] = [
   },
 ];
 
-export type SkillIcon = "layout" | "server" | "database" | "container" | "wrench";
+export type SkillIcon =
+  "layout" | "server" | "database" | "container" | "wrench";
 
 export interface SkillGroup {
   id: string;
@@ -125,12 +135,14 @@ export const skillGroups: SkillGroup[] = [
     id: "backend",
     title: "Backend",
     icon: "server",
-    description: "Services and APIs, with a growing focus on compiled languages.",
+    description:
+      "Services and APIs, with a growing focus on compiled languages.",
     items: [
       { name: "Go", note: "services, concurrency" },
-      { name: "Java", note: "OOP fundamentals" },
-      { name: "Node.js", note: "tooling and APIs" },
+      // { name: "Java", note: "OOP fundamentals" },
+      // { name: "Node.js", note: "tooling and APIs" },
       { name: "REST APIs", note: "design and consumption" },
+      { name: "Postman", note: "API testing" },
     ],
   },
   {
@@ -139,16 +151,17 @@ export const skillGroups: SkillGroup[] = [
     icon: "database",
     description: "Modelling and querying data for real application needs.",
     items: [
-      { name: "PostgreSQL", note: "primary relational store" },
+      // { name: "PostgreSQL", note: "primary relational store" },
       { name: "MySQL", note: "academic and legacy work" },
-      { name: "SQLite", note: "local and embedded" },
+      // { name: "SQLite", note: "local and embedded" },
     ],
   },
   {
     id: "devops",
     title: "DevOps",
     icon: "container",
-    description: "Reproducible environments and comfortable command-line workflows.",
+    description:
+      "Reproducible environments and comfortable command-line workflows.",
     items: [
       { name: "Docker", note: "containers, compose" },
       { name: "Linux", note: "daily driver" },
@@ -222,5 +235,6 @@ export const navPages = [
 
 export const yearsLearning = new Date().getFullYear() - timeline[0].year;
 
-export const mainTechnologies = new Set(skillGroups.flatMap((g) => g.items.map((i) => i.name)))
-  .size;
+export const mainTechnologies = new Set(
+  skillGroups.flatMap((g) => g.items.map((i) => i.name)),
+).size;

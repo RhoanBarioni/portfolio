@@ -50,8 +50,14 @@ function Stack() {
               >
                 <div>
                   <div className="flex items-center gap-3">
-                    <Icon aria-hidden className="h-4 w-4 text-muted-foreground" />
-                    <h2 id={`${group.id}-title`} className="text-lg font-medium tracking-tight">
+                    <Icon
+                      aria-hidden
+                      className="h-4 w-4 text-muted-foreground"
+                    />
+                    <h2
+                      id={`${group.id}-title`}
+                      className="text-lg font-medium tracking-tight"
+                    >
                       {group.title}
                     </h2>
                   </div>

@@ -28,7 +28,13 @@ const CASE_FIELDS = [
   { key: "results", label: "Results" },
 ] as const;
 
-function ProjectSection({ project, index }: { project: Project; index: number }) {
+function ProjectSection({
+  project,
+  index,
+}: {
+  project: Project;
+  index: number;
+}) {
   return (
     <article
       aria-labelledby={`${project.id}-title`}
@@ -62,14 +68,35 @@ function ProjectSection({ project, index }: { project: Project; index: number })
               {project.demo ?? project.repo}
             </span>
           </div>
-          <img
-            src={project.cover}
-            alt={`${project.name} interface`}
-            loading={index === 0 ? "eager" : "lazy"}
-            width={1280}
-            height={800}
-            className="aspect-[16/10] w-full object-cover"
-          />
+          {project.demo ? (
+            <a
+              href={project.demo}
+              target="_blank"
+              rel="noreferrer noopener"
+              aria-label={`Open ${project.name} ${project.demoLabel}`}
+              className="group block"
+            >
+              <img
+                src={project.cover}
+                alt={`${project.name} interface`}
+                loading={index === 0 ? "eager" : "lazy"}
+                draggable={false}
+                width={1280}
+                height={800}
+                className="aspect-[16/10] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025] motion-reduce:transform-none motion-reduce:transition-none"
+              />
+            </a>
+          ) : (
+            <img
+              src={project.cover}
+              alt={`${project.name} interface`}
+              loading={index === 0 ? "eager" : "lazy"}
+              draggable={false}
+              width={1280}
+              height={800}
+              className="aspect-[16/10] w-full object-cover"
+            />
+          )}
         </div>
       </Reveal>
 

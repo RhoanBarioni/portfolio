@@ -37,7 +37,10 @@ export function SiteNav() {
         >
           <span className="text-primary">~/</span>
           <span className="tracking-tight">rhoan</span>
-          <span aria-hidden className="text-muted-foreground group-hover:text-primary">
+          <span
+            aria-hidden
+            className="text-muted-foreground group-hover:text-primary"
+          >
             .dev
           </span>
         </Link>

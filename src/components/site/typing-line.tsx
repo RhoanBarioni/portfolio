@@ -4,7 +4,13 @@ import { useEffect, useState } from "react";
  * Terminal-style typing effect. Renders nothing typed on the server so
  * hydration always matches; the animation starts after mount and runs once.
  */
-export function TypingLine({ text, speed = 65 }: { text: string; speed?: number }) {
+export function TypingLine({
+  text,
+  speed = 65,
+}: {
+  text: string;
+  speed?: number;
+}) {
   const [typed, setTyped] = useState("");
 
   useEffect(() => {

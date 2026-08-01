@@ -32,14 +32,25 @@ function Experience() {
 
       <ol className="mt-16 border-l border-border">
         {timeline.map((entry, index) => (
-          <Reveal as="li" key={entry.year} delay={0.06 * index} className="relative pb-14 pl-8 last:pb-0 sm:pl-12">
+          <Reveal
+            as="li"
+            key={entry.year}
+            delay={0.06 * index}
+            className="relative pb-14 pl-8 last:pb-0 sm:pl-12"
+          >
             <span
               aria-hidden
-              className="absolute top-1.5 -left-[4.5px] h-2 w-2 rounded-full bg-primary"
-            />
+              className="availability-pulse absolute top-2.5 -left-[4.5px] inline-flex h-2 w-2 sm:top-3"
+            >
+              <span className="relative z-10 h-full w-full rounded-full bg-primary" />
+            </span>
             <div className="flex flex-wrap items-baseline gap-x-4">
-              <span className="font-mono text-sm text-primary">{entry.year}</span>
-              <h2 className="text-xl font-medium tracking-tight sm:text-2xl">{entry.title}</h2>
+              <span className="font-mono text-sm text-primary">
+                {entry.year}
+              </span>
+              <h2 className="text-xl font-medium tracking-tight sm:text-2xl">
+                {entry.title}
+              </h2>
             </div>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
               {entry.description}

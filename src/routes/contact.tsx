@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, Instagram } from "lucide-react";
 import { PageHeader, PageShell, Label } from "@/components/ui-kit/page";
 import { Reveal } from "@/components/ui-kit/reveal";
 import { profile } from "@/data/portfolio";
@@ -24,9 +24,34 @@ export const Route = createFileRoute("/contact")({
 });
 
 const channels = [
-  { id: "email", label: "Email", value: profile.email, href: `mailto:${profile.email}`, icon: Mail },
-  { id: "linkedin", label: "LinkedIn", value: "in/rhoanbarioni", href: profile.linkedin, icon: Linkedin },
-  { id: "github", label: "GitHub", value: `@${profile.githubUser}`, icon: Github, href: profile.github },
+  {
+    id: "email",
+    label: "Email",
+    value: profile.email,
+    href: `mailto:${profile.email}`,
+    icon: Mail,
+  },
+  {
+    id: "linkedin",
+    label: "LinkedIn",
+    value: "in/rhoanbarioni",
+    href: profile.linkedin,
+    icon: Linkedin,
+  },
+  {
+    id: "github",
+    label: "GitHub",
+    value: `@${profile.githubUser}`,
+    icon: Github,
+    href: profile.github,
+  },
+  {
+    id: "instagram",
+    label: "Instagram",
+    value: `@${profile.instagramUser}`,
+    icon: Instagram,
+    href: profile.instagram,
+  },
 ];
 
 function Contact() {
@@ -41,8 +66,10 @@ function Contact() {
 
     const next: Record<string, string> = {};
     if (!name) next.name = "Please tell me your name.";
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) next.email = "Please enter a valid email.";
-    if (message.length < 10) next.message = "A little more detail, please (10+ characters).";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
+      next.email = "Please enter a valid email.";
+    if (message.length < 10)
+      next.message = "A little more detail, please (10+ characters).";
     setErrors(next);
     if (Object.keys(next).length > 0) return;
 
@@ -75,10 +102,15 @@ function Contact() {
                   className="group flex items-center justify-between gap-4 py-4 transition-colors hover:text-primary"
                 >
                   <span className="flex items-center gap-3">
-                    <channel.icon aria-hidden className="h-4 w-4 text-muted-foreground" />
+                    <channel.icon
+                      aria-hidden
+                      className="h-4 w-4 text-muted-foreground"
+                    />
                     <span className="text-sm">{channel.label}</span>
                   </span>
-                  <span className="font-mono text-xs text-muted-foreground">{channel.value}</span>
+                  <span className="font-mono text-xs text-muted-foreground">
+                    {channel.value}
+                  </span>
                 </a>
               </li>
             ))}
@@ -86,16 +118,28 @@ function Contact() {
         </Reveal>
 
         <Reveal delay={0.06}>
-          <form onSubmit={onSubmit} noValidate className="rounded-lg border border-border p-6">
+          <form
+            onSubmit={onSubmit}
+            noValidate
+            className="rounded-lg border border-border p-6"
+          >
             <Label>compose message</Label>
 
             <div className="mt-5">
               <label htmlFor="name" className="text-sm text-muted-foreground">
                 Name
               </label>
-              <input id="name" name="name" type="text" autoComplete="name" className={field} />
+              <input
+                id="name"
+                name="name"
+                type="text"
+                autoComplete="name"
+                className={field}
+              />
               {errors.name && (
-                <p className="mt-1.5 font-mono text-xs text-destructive">{errors.name}</p>
+                <p className="mt-1.5 font-mono text-xs text-destructive">
+                  {errors.name}
+                </p>
               )}
             </div>
 
@@ -103,19 +147,37 @@ function Contact() {
               <label htmlFor="email" className="text-sm text-muted-foreground">
                 Email
               </label>
-              <input id="email" name="email" type="email" autoComplete="email" className={field} />
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autoComplete="email"
+                className={field}
+              />
               {errors.email && (
-                <p className="mt-1.5 font-mono text-xs text-destructive">{errors.email}</p>
+                <p className="mt-1.5 font-mono text-xs text-destructive">
+                  {errors.email}
+                </p>
               )}
             </div>
 
             <div className="mt-4">
-              <label htmlFor="message" className="text-sm text-muted-foreground">
+              <label
+                htmlFor="message"
+                className="text-sm text-muted-foreground"
+              >
                 Message
               </label>
-              <textarea id="message" name="message" rows={5} className={field} />
+              <textarea
+                id="message"
+                name="message"
+                rows={5}
+                className={field}
+              />
               {errors.message && (
-                <p className="mt-1.5 font-mono text-xs text-destructive">{errors.message}</p>
+                <p className="mt-1.5 font-mono text-xs text-destructive">
+                  {errors.message}
+                </p>
               )}
             </div>
 

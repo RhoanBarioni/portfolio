@@ -11,7 +11,7 @@ export function SiteFooter() {
           Designed &amp; developed by{" "}
           <span className="text-white/35">{profile.name}</span>
         </p>
-        <p className="font-mono text-xs text-white/35">
+        {/* <p className="font-mono text-xs text-white/35">
           built with{" "}
           {BUILT_WITH.map((item, i) => (
             <span key={item}>
@@ -19,7 +19,7 @@ export function SiteFooter() {
               {i < BUILT_WITH.length - 1 ? " · " : ""}
             </span>
           ))}
-        </p>
+        </p> */}
         <div className="flex items-center gap-4 text-white/35">
           <a
             href={profile.github}
