@@ -22,7 +22,7 @@ export const profile: Profile = {
   tagline: "Computer Science Student",
   about: [
     "I'm a Computer Science student and Full Stack Developer based in Brazil. I care about software that is readable six months later, not just software that ships today.",
-    "I build web applications end to end: interfaces with React, Vite and TypeScript, and services with Go and Java on top of relational databases.",
+    "I build web applications end to end: interfaces with React, Vite and TypeScript, and services with Go on top of relational databases. I'm currently learning Java.",
     "Right now I'm deepening my backend work — API design, data modelling, containers and Linux tooling — and learning how to reason about systems rather than screens.",
     "My goal is to grow into an engineer who can own a product from database schema to the last pixel, working on teams that take craft seriously.",
   ],
