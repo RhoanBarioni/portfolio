@@ -3,7 +3,7 @@ import { PageHeader, PageShell, Label } from "@/components/ui-kit/page";
 import { Reveal } from "@/components/ui-kit/reveal";
 import { profile, skillGroups, timeline } from "@/data/portfolio";
 
-const TITLE = "About — Rhoan Barioni";
+const TITLE = "Rhoan Barioni - Software Developer";
 const DESCRIPTION =
   "Who I am, what I build and where I'm heading: Rhoan Barioni, Full Stack Developer and Computer Science student in Brazil.";
 

@@ -9,7 +9,7 @@ import {
   mainTechnologies,
 } from "@/data/portfolio";
 
-const TITLE = "Rhoan Barioni — Full Stack Developer";
+const TITLE = "Rhoan Barioni - Software Developer";
 const DESCRIPTION =
   "Full Stack Developer and Computer Science student building web applications with React, TypeScript, Go and Java.";
 

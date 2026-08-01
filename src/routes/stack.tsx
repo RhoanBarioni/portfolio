@@ -4,7 +4,7 @@ import { PageHeader, PageShell } from "@/components/ui-kit/page";
 import { Reveal } from "@/components/ui-kit/reveal";
 import { skillGroups, type SkillIcon } from "@/data/portfolio";
 
-const TITLE = "Tech Stack — Rhoan Barioni";
+const TITLE = "Rhoan Barioni - Software Developer";
 const DESCRIPTION =
   "The frontend, backend, database, DevOps and tooling technologies Rhoan Barioni works with every day.";
 

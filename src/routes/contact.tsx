@@ -5,7 +5,7 @@ import { PageHeader, PageShell, Label } from "@/components/ui-kit/page";
 import { Reveal } from "@/components/ui-kit/reveal";
 import { profile } from "@/data/portfolio";
 
-const TITLE = "Contact — Rhoan Barioni";
+const TITLE = "Rhoan Barioni - Software Developer";
 const DESCRIPTION =
   "Get in touch with Rhoan Barioni by email, LinkedIn or GitHub — open to internships, junior roles and freelance work.";
 
