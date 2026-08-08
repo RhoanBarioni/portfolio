@@ -111,7 +111,8 @@ interface RawCommitSearch {
 function describeEvent(event: RawEvent): string {
   switch (event.type) {
     case "PushEvent": {
-      const count = event.payload?.commits?.length ?? 0;
+      const count = event.payload?.commits?.length;
+      if (!count) return "Enviou alterações";
       return `Enviou ${count} commit${count === 1 ? "" : "s"}`;
     }
     case "CreateEvent":
