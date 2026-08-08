@@ -137,17 +137,20 @@ function ContributionGrid({ days }: { days: GithubDay[] }) {
   return (
     <div className="overflow-x-auto">
       <div
-        className="flex gap-[3px]"
+        className="mx-auto flex w-max gap-1"
         role="img"
         aria-label="Atividade pública de contribuições nas últimas 17 semanas"
       >
         {weeks.map((week) => (
-          <div key={week[0].date} className="flex flex-col gap-[3px]">
+          <div key={week[0].date} className="flex flex-col gap-1">
             {week.map((day) => (
               <span
                 key={day.date}
                 title={`${day.date}: ${day.count} evento${day.count === 1 ? "" : "s"} público${day.count === 1 ? "" : "s"}`}
-                className={cn("h-3 w-3 rounded-[2px]", level(day.count))}
+                className={cn(
+                  "h-3.5 w-3.5 rounded-[3px] sm:h-4 sm:w-4 lg:h-5 lg:w-5",
+                  level(day.count),
+                )}
               />
             ))}
           </div>
